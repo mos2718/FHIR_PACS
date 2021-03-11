@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="ECGdat.js"></script>  
+    </head>
+<body>
+<canvas id="myCanvas" width="1000" height="600" style="border:4px solid #ff0000;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+
+w=[{"age":1,"weight":7},
+{"age":2,"weight":7},
+{"age":3,"weight":8},
+{"age":7,"weight":20},
+{"age":12,"weight":50}];
+//alert(w[3].weight);
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.strokeStyle ="#FF0000"; //"green";
+ctx.lineWidth =1;
+x = w[0].age * 50;
+y = 600 - w[0].weight * 10;  
+ctx.moveTo(x,y);
+for(i=1;i<5; i++)
+  {
+x = w[i].age * 50;
+y = 600 - w[i].weight * 10;  
+ctx.lineTo(x,y);
+  }
+
+ctx.stroke();
+
+</script> 
+</body>
+</html>

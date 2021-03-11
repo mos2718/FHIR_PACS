@@ -5,13 +5,38 @@
 </head>
 <body>
 
+
+    
+
 <canvas id="myCanvas" width="1800" height="800" style="border:1px solid #d3d3d3;">
 Your browser does not support the HTML5 canvas tag.</canvas>
 
 <script>
+
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
+//ctx.fillStyle="#FF0000"; 
+ctx.strokeStyle ="#FF0000"; //"green";
+ctx.lineWidth =1;
+var y;
 
+for(y=0;y<600; y= y +30)
+   {ctx.moveTo(0,y);
+    ctx.lineTo(800,y);
+   } 
+ctx.stroke();
+  
+var ret;
+var x;
+ctx.lineWidth =2;
+ctx.moveTo(0,300);
+for(x=0;x<800; x= x+1)
+   {ret = ECGdat[x][1];
+    ret = ret - 1024 + 300; 
+    ctx.lineTo(x, ret);
+   }
+
+ctx.stroke();
 
 </script>
 
