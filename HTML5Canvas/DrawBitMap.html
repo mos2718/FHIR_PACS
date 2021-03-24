@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>  <script src="HTTP2019.js"></script>      </head>
+<body style="width: 1405px; height: 1335px;">
+<input id="Button1" onclick="setPixel()" type="button" value="button" /><br><br>
+
+<canvas id="canvas" width="800" height="600"></canvas>
+<script>
+ var c = document.getElementById("canvas");  //畫布物件
+ var ctx = c.getContext("2d"); //繪圖物件
+// Create an ImageData object,  點陣圖物件
+ var imageData = ctx.getImageData(0, 0, c.width, c.height);
+
+ 
+ function setPixel() {
+
+    //用雙重迴圈設定點陣圖物件每一點的顏色
+    for (var y = 100; y < 150; y++)
+        {for (var x = 0; x < 800; x++) 
+            {   var canvasDataIndex = (y * c.width + x) * 4;
+                imageData.data[canvasDataIndex] = 128;     // Red
+                imageData.data[canvasDataIndex + 1] =0; // Green
+                imageData.data[canvasDataIndex + 2] = 0;  // Blue
+                imageData.data[canvasDataIndex + 3] =255;   // Alpha
+            }
+        }
+    // 使用繪圖物件將點陣圖物件貼到畫布
+    ctx.putImageData(imageData,100, 0); //0,0 貼的起始點
+    }
+</script>
+</body>
+</html>
